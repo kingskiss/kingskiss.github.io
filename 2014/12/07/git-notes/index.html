@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>使用Sublime Text 2 编辑Markdown | King&#39;s Kiss&#39;s blog</title>
+    <title>git notes | King&#39;s Kiss&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="kingskiss">
     
-    <meta name="description" content="一、安装
-下载Sublime Text 2安装
-二、安装Package Control
-按Ctrl + ` 打开console粘贴代码到console并回车重启Sublime Text 2import urllib2,os;pf=’Package Control.sublime-package’;i">
+    <meta name="description" content="git notes
+
+配置gitgit config —global user.name “kingskiss”git config —global user.email “btxddwnj@hotmail.com”
+
+查看配置信息git config —listgit config user.na">
     
     
     
@@ -69,15 +70,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/12/04/my-new-post/" title="使用Sublime Text 2 编辑Markdown" itemprop="url">使用Sublime Text 2 编辑Markdown</a>
+      <a href="/2014/12/07/git-notes/" title="git notes" itemprop="url">git notes</a>
   </h1>
   <p class="article-author">By
     
       <a href="kingskiss.github.io" title="kingskiss">kingskiss</a>
     </p>
   <p class="article-time">
-    <time datetime="2014-12-04T14:21:21.000Z" itemprop="datePublished">Dec 4 2014</time>
-    Updated:<time datetime="2014-12-04T17:02:42.000Z" itemprop="dateModified">Dec 5 2014</time>
+    <time datetime="2014-12-07T15:19:37.000Z" itemprop="datePublished">Dec 7 2014</time>
+    Updated:<time datetime="2014-12-07T15:19:18.000Z" itemprop="dateModified">Dec 7 2014</time>
     
   </p>
 </header>
@@ -86,26 +87,67 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git_notes"><span class="toc-number">1.</span> <span class="toc-text">git notes</span></a></li></ol>
 		</div>
 		
-		<p><strong>一、安装</strong></p>
-<p>下载Sublime Text 2<br>安装</p>
-<p><strong>二、安装Package Control</strong></p>
-<p>按Ctrl + ` 打开console<br>粘贴代码到console并回车<br>重启Sublime Text 2<br>import urllib2,os;pf=’Package Control.sublime-package’;ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),’wb’).write(urllib2.urlopen(‘<a href="http://sublime.wbond.net/&#39;+pf.replace(" target="_blank" rel="external">http://sublime.wbond.net/&#39;+pf.replace(</a>‘ ‘,’%20’)).read())</p>
-<p><strong>三、安装Markdown Preview</strong></p>
-<p>按Ctrl + Shift + P<br>输入pci 后回车(Package Control: Install Package)<br>稍等… ^_^<br>输入Markdown Preview回车</p>
-<p><strong>四、编辑</strong></p>
-<p>按Ctrl + N 新建一个文档<br>按Ctrl + Shift + P<br>使用Markdown语法编辑文档<br>语法高亮，输入ssm 后回车(Set Syntax: Markdown)</p>
-<p><strong>五、在浏览器预览Markdown文档</strong></p>
-<p>按Ctrl + Shift + P<br>输入mp 后回车(Markdown Preview: current file in browser)<br>此时就可以在浏览器里看到刚才编辑的文档了</p>
+		<h1 id="git_notes">git notes</h1>
+<ol>
+<li><p>配置git<br>git config —global user.name “kingskiss”<br>git config —global user.email “btxddwnj@hotmail.com”</p>
+</li>
+<li><p>查看配置信息<br>git config —list<br>git config user.name</p>
+</li>
+<li><p>如果希望在克隆的时候，自己定义要新建的项目目录名称，可以在上面的命令最后指定：<br>git clone git://github.com/schacon/grit.git mygrit</p>
+</li>
+<li><p>检查当前文件状态<br>git status</p>
+</li>
+<li><p>跟踪新文件<br>git add note.md</p>
+</li>
+<li><p>gitignore</p>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">*</span>.a 	<span class="comment"># 忽略所有.a结尾的文件</span></div><div class="line">！lib.a 	<span class="comment"># 但lib.a除外</span></div><div class="line">/TODO	<span class="comment"># 仅仅忽略项目跟目录下的TODO文件，不包括subdir/TODO</span></div><div class="line">build/	<span class="comment">#忽略build/目录下的所有文件</span></div><div class="line">doc/<span class="keyword">*</span>.txt <span class="comment"># 会忽略doc/notes.txt 但不包括doc/server/arch.txt</span></div></pre></td></tr></table></figure>
+
+<ol>
+<li><p>查看已暂存和为暂存的更新<br>要查看尚未暂存的文件更新了哪些部分，不加参数直接输入<br>git diff<br>此命令比较的是工作目录中当前文件和暂存区域快照之间的差异，<br>也就算修改之后还没有暂存起来的变化内容。<br>若要看已经暂存起来的文件和上次提交时的快照之间的差异，可以用<br>git —staged</p>
+</li>
+<li><p>提交更新<br>git commit -m “created or modified some files”<br>跳过使用暂存区域直接提交<br>git commit -a -m “xxx”</p>
+</li>
+<li><p>移除文件<br>git rm<br>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项-f，<br>以防误删除文件 后丢失修改的内容。<br>另外一种情况是，我们想把文件从git仓库中删除，但仍然希望保留在当前工作目录中。<br>git rm —cached readme.txt</p>
+</li>
+</ol>
+<p>git rm log/*.log    此命令删除所有log/目录下扩展名为.log的文件。<br>git rm *~        此命令会递归删除当前目录及其子目录中所有~结尾的文件。</p>
+<ol>
+<li><p>移动文件<br>git mv readme.md readme<br>相当于运行了下面三条命令：<br>mv readme.md readme<br>git rm readme.md<br>git add readme</p>
+</li>
+<li><p>查看提交历史<br>git log<br>我们常用-p 选项展开显示每次提交的内容差异，用-2则仅显示最近的两次更新<br>git log -p -2</p>
+</li>
+</ol>
+<p>显示简要的增改行数统计:<br>git log —stat</p>
+<p>—pretty选项<br>git log —pretty=oneline<br>git log —pretty=format:”%h - %an, %ar :％s”</p>
+<p>常用的占位符写法及其代表的意义。<br>%H         提交对象(commit)的完整哈希字串<br>%h         提交对象的简短哈希字串<br>%T         树(tree)对象的完整哈希字串<br>%t         树对象的简短哈希字串<br>%P         父对象(parent)的完整哈希字串<br>%p         父对象的简短哈希字串<br>%an         作者(author)的名字<br>%ae         作者的email地址<br>%ad         作者修订日期(可以用 -date= 选项定制格式)<br>%ar         作者修订日期，按多久以前的方式显示<br>%cn         提交者(committer)的名字<br>%ce         提交者的email<br>%cd         提交日期<br>%cr         提交日期，按多久以前的方式显示<br>%s         提交说明</p>
+<p>—graph选项<br>git log —pretty=format:”%h %s” —graph</p>
+<p>git log命令支持的常用选项<br>选项                     说明<br>-p             按补丁格式显示每个更新之间的差异<br>—stat             显示每次更新的文件修改统计信息<br>—shortstat         只显示—stat中最后的行数修改添加移除统计<br>—name-only         仅在提交信息后显示已修改的文件清单<br>—name-status         显示新增、修改、删除的文件清单<br>—abbrev-commit     仅显示SHA-1的前几个字符，而非所有的40个字符<br>—relative-date         仅用较短的相对时间显示(比如， “2 weeks ago)<br>—graph          显示ASCII图形表示的分支合并历史<br>—pretty         使用其他格式显示历史提交信息。可用的选项包括：<br>            oneline,short,full,fuller和format(后跟指定格式)</p>
+<p>限制输出长度<br>列出所有最近两周内的提交：<br>git log —since=2.weeks<br>可用给出各种事件格式，比如具体的某一天(“2010-10-10”)，<br>或者是从多久以前(“2 yeas 1 day 3 minutes ago”)<br>选项             说明<br>-(n)         仅显示最近的n条提交<br>—since, —after  仅显示指定时间之后的提交<br>—until, —before 仅显示指定事件之前的提交<br>—author     仅显示指定作者相关提交<br>—committer     仅显示指定提交者相关的提交</p>
+<p>使用图形化工具查阅提交历史<br>gtik</p>
+<ol>
+<li>撤销操作</li>
+</ol>
+<p>修改最后一次提交<br>git commit —amend</p>
+<p>取消已经暂存的文件<br>git reset HEAD <file>…</file></p>
+<p>取消对文件的修改<br>git checkout —<file>…</file></p>
+<ol>
+<li>远程仓库的使用<br>查看当前的远程库<br>git remote<br>git remote -v         显示对应的clone地址</li>
+</ol>
+<p>添加远程仓库<br>git remote add [shortname] [url]<br>git remote add pd git@github.com:paulboone/ticgit.git</p>
+<p>比如说，要抓取所有Paul有的，但本地仓库没有的信息，可以运行<br>git fetch pd</p>
+<p>从远程仓库抓取数据<br>git fetch [remote-name]<br>此命令会到远程仓库中拉取所有你本地仓库中还没有的数据</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/blog/">blog</a><a href="/tags/Markdown/">Markdown</a>
+  <span></span> <a href="/tags/git/">git</a><a href="/tags/blog/">blog</a>
   </div>
 
 
@@ -113,7 +155,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="kingskiss.github.io/2014/12/04/my-new-post/" data-title="使用Sublime Text 2 编辑Markdown | King&#39;s Kiss&#39;s blog" data-tsina="3040728854" class="share clearfix">
+  <div data-url="kingskiss.github.io/2014/12/07/git-notes/" data-title="git notes | King&#39;s Kiss&#39;s blog" data-tsina="3040728854" class="share clearfix">
   </div>
 
 </div>
@@ -122,14 +164,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/12/04/bulid-blog-first-time/" title="第一次使用git建立博客">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  第一次使用git建立博客</span>
+
+<div class="next">
+<a href="/2014/12/05/Markdown-Notes/"  title="MarkDownNotes">
+ <strong>NEXT:</strong><br/> 
+ <span>MarkDownNotes
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -139,7 +181,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git_notes"><span class="toc-number">1.</span> <span class="toc-text">git notes</span></a></li></ol>
   </div>
 
 <div id="asidepart">
